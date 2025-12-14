@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Save Griggs Park - Poster</title>
+  <style>
+    @page {
+      size: letter;
+      margin: 0.5in;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: white;
+      color: #1b1b1b;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0.5in;
+    }
+
+    .poster {
+      width: 7.5in;
+      max-width: 100%;
+      text-align: center;
+      border: 4px solid #2d6a4f;
+      border-radius: 16px;
+      padding: 32px;
+      background: white;
+    }
+
+    .header {
+      margin-bottom: 20px;
+    }
+
+    .header h1 {
+      font-size: 48px;
+      font-weight: 800;
+      color: #1b4332;
+      line-height: 1.1;
+      margin-bottom: 8px;
+    }
+
+    .header .subtitle {
+      font-size: 22px;
+      color: #2d6a4f;
+      font-weight: 600;
+    }
+
+    .illustration {
+      margin: 20px auto;
+    }
+
+    .illustration img {
+      width: 280px;
+      height: auto;
+    }
+
+    .message {
+      margin: 20px 0;
+    }
+
+    .message h2 {
+      font-size: 26px;
+      color: #1b4332;
+      margin-bottom: 12px;
+    }
+
+    .message p {
+      font-size: 18px;
+      line-height: 1.5;
+      color: #333;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .cta {
+      margin: 28px 0 20px;
+      padding: 20px;
+      background: #d8f3dc;
+      border-radius: 12px;
+    }
+
+    .cta h3 {
+      font-size: 28px;
+      color: #1b4332;
+      margin-bottom: 16px;
+    }
+
+    .qr-section {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .qr-code img {
+      width: 140px;
+      height: 140px;
+      border: 3px solid #1b4332;
+      border-radius: 8px;
+    }
+
+    .url {
+      text-align: left;
+    }
+
+    .url .site {
+      font-size: 32px;
+      font-weight: 700;
+      color: #1b4332;
+    }
+
+    .url .action {
+      font-size: 16px;
+      color: #555;
+      margin-top: 4px;
+    }
+
+    .footer {
+      margin-top: 20px;
+      font-size: 14px;
+      color: #666;
+    }
+
+    @media print {
+      body {
+        padding: 0;
+        background: white;
+      }
+
+      .poster {
+        border: 4px solid #2d6a4f;
+        box-shadow: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="poster">
+    <div class="header">
+      <h1>SAVE GRIGGS PARK</h1>
+      <p class="subtitle">Don't let them close our park for a year!</p>
+    </div>
+
+    <div class="illustration">
+      <img src="park_closed.png" alt="Sad child and dog at closed park">
+    </div>
+
+    <div class="message">
+      <h2>The Town wants to close the ENTIRE park during renovation.</h2>
+      <p>
+        We're asking them to renovate <strong>one section at a time</strong>
+        so families, kids, and dogs can still enjoy the park.
+      </p>
+    </div>
+
+    <div class="cta">
+      <h3>Sign our petition!</h3>
+      <div class="qr-section">
+        <div class="qr-code">
+          <img src="qr-code.png" alt="QR code to savegriggs.org">
+        </div>
+        <div class="url">
+          <div class="site">savegriggs.org</div>
+          <div class="action">Scan or visit to add your name</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      Questions? Email ezra@savegriggs.org
+    </div>
+  </div>
+</body>
+</html>
