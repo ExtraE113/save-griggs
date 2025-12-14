@@ -20,20 +20,16 @@
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       background: white;
       color: #1b1b1b;
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 0.5in;
     }
 
     .poster {
-      width: 7.5in;
-      max-width: 100%;
+      width: 100%;
+      max-width: 7in;
+      margin: 0 auto;
       text-align: center;
       border: 4px solid #2d6a4f;
       border-radius: 16px;
-      padding: 32px;
+      padding: 24px;
       background: white;
     }
 
@@ -69,7 +65,7 @@
     }
 
     .message h2 {
-      font-size: 26px;
+      font-size: 30px;
       color: #1b4332;
       margin-bottom: 12px;
     }
@@ -134,8 +130,9 @@
 
     @media print {
       body {
-        padding: 0;
         background: white;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
       }
 
       .poster {
