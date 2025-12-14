@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sign our petition to keep Griggs Park partially open during renovation">
+  <title>Save Griggs Park</title>
+  <link rel="stylesheet" href="/src/styles.css">
+</head>
+<body>
+  <main class="container">
+    <!-- Hero Section -->
+    <section class="hero">
+      <h1>Save Griggs Park</h1>
+      <p class="tagline">Keep our park open during renovation</p>
+    </section>
+
+    <!-- About Section -->
+    <section class="about">
+      <h2>What's Happening?</h2>
+      <p>
+        The Town of Brookline is planning to renovate Griggs Park. While we support
+        improving our beloved community space, the current plan would <strong>close
+        the entire park</strong> for an extended period (around a <strong>year</strong>, at least).
+      </p>
+
+      <h2>Our Request</h2>
+      <p>
+        We're asking the Town to select a contractor who will <strong>renovate one
+        section at a time</strong>, keeping the rest of the park open for families,
+        children, and all community members who depend on this green space.
+      </p>
+
+      <h2>How You Can Help</h2>
+      <p>
+        Add your name to our petition. If you'd like to go further, send a quick
+        email to town officials — we've already written it for you.
+      </p>
+    </section>
+
+    <!-- Action Buttons -->
+    <section class="actions">
+      <button id="btn-sign-email" class="btn btn-primary">
+        Sign & Send Email
+      </button>
+      <button id="btn-sign" class="btn btn-secondary">
+        Sign Our Petition
+      </button>
+    </section>
+
+    <!-- Signature Count (optional, can be hidden initially) -->
+    <section class="signature-count" id="signature-count" style="display: none;">
+      <p><span id="count">0</span> people have signed</p>
+    </section>
+  </main>
+
+  <!-- Modal Overlay -->
+  <div class="modal-overlay" id="modal-overlay">
+    <div class="modal" id="modal">
+      <!-- Step 1: Name -->
+      <div class="modal-step" id="step-name">
+        <button class="modal-close" id="modal-close" aria-label="Close">&times;</button>
+        <h2>Sign the Petition</h2>
+        <p>Add your name to show your support for keeping Griggs Park open.</p>
+        <form id="form-name">
+          <label for="input-name">Your Name</label>
+          <input
+            type="text"
+            id="input-name"
+            name="name"
+            placeholder="Jane Smith"
+            required
+            autocomplete="name"
+          >
+          <button type="submit" class="btn btn-primary">Next</button>
+        </form>
+      </div>
+
+      <!-- Step 2: Email (optional) -->
+      <div class="modal-step hidden" id="step-email">
+        <button class="modal-close" id="modal-close-2" aria-label="Close">&times;</button>
+        <h2>Stay Updated (Optional)</h2>
+        <p>Leave your email to receive updates about our progress.</p>
+        <form id="form-email">
+          <label for="input-email">Your Email</label>
+          <input
+            type="email"
+            id="input-email"
+            name="email"
+            placeholder="jane@example.com"
+            autocomplete="email"
+          >
+          <div class="btn-group">
+            <button type="button" class="btn btn-text" id="btn-skip-email">Skip</button>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Step 3: Thank You (sign only) -->
+      <div class="modal-step hidden" id="step-thanks">
+        <h2>Thank You!</h2>
+        <p>Your signature has been recorded. Together, we can keep Griggs Park open for our community.</p>
+        <button class="btn btn-primary" id="btn-done">Done</button>
+      </div>
+
+      <!-- Step 3 Alt: Send Email -->
+      <div class="modal-step hidden" id="step-send-email">
+        <button class="modal-close" id="modal-close-3" aria-label="Close">&times;</button>
+        <h2>One More Step</h2>
+        <p>Click below to open a pre-written email to town officials. Just review and hit send!</p>
+        <div class="btn-group-vertical">
+          <button class="btn btn-primary" id="btn-open-email">Open Email</button>
+          <button class="btn btn-text" id="btn-skip-send">Skip</button>
+        </div>
+      </div>
+
+      <!-- Step 4: Final Thanks (after email) -->
+      <div class="modal-step hidden" id="step-final-thanks">
+        <h2>You're Amazing!</h2>
+        <p>Thank you for signing and reaching out to our town officials. Your voice matters!</p>
+        <button class="btn btn-primary" id="btn-final-done">Done</button>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>Questions? Contact us at <a href="mailto:ezra@savegriggs.org">ezra@savegriggs.org</a></p>
+  </footer>
+
+  <script type="module" src="/src/app.ts"></script>
+</body>
+</html>
