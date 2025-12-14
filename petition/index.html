@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Sign our petition to keep Griggs Park partially open during renovation">
-  <title>Save Griggs Park</title>
+  <meta name="description" content="Read and sign our petition to keep Griggs Park partially open during renovation">
+  <title>The Petition - Save Griggs Park</title>
   <link rel="stylesheet" href="/src/styles.css">
 
   <!-- Google Analytics -->
@@ -18,52 +18,94 @@
     });
   </script>
 </head>
-<body>
-  <main class="container">
-    <!-- Hero Section -->
+<body class="has-floating-actions">
+  <main class="container petition-page">
+    <!-- Header -->
     <section class="hero">
-      <h1>Save Griggs Park</h1>
-      <p class="tagline">Keep our park open during renovation</p>
+      <p class="back-link"><a href="/">&larr; Back to Home</a></p>
+      <h1>Our Petition</h1>
     </section>
 
-    <!-- About Section -->
-    <section class="about">
-      <h2>What's Happening?</h2>
+    <!-- Petition Content -->
+    <section class="petition-content">
+      <h2>To the Town of Brookline Select Board and Parks Department:</h2>
+
       <p>
-        The Town of Brookline is planning to renovate Griggs Park. While we support
-        improving our beloved community space, the current plan would <strong>close
-        the entire park</strong> for an extended period (around a <strong>year</strong>, at least).
+        We, the undersigned residents and community members, respectfully petition the
+        Town of Brookline to prioritize keeping Griggs Park accessible during its
+        upcoming renovation.
       </p>
 
-      <h2>Our Request</h2>
+      <h3>Background</h3>
       <p>
-        We're asking the Town to select a contractor who will <strong>renovate one
-        section at a time</strong>, keeping the rest of the park open for families,
-        children, and all community members who depend on this green space.
+        Griggs Park is a vital green space that serves hundreds of families, children,
+        dog owners, and community members every day. The planned renovation, while
+        welcome, threatens to close the <strong>entire park for an extended period</strong> —
+        potentially a year or longer.
       </p>
 
-      <h2>How You Can Help</h2>
+      <h3>Our Request</h3>
       <p>
-        Add your name to <a href="/petition">our petition</a>. If you'd like to go further, send a quick
-        email to town officials — we've already written it for you.
+        We ask that the Town of Brookline:
       </p>
+      <ol>
+        <li>
+          <strong>Select a contractor committed to phased construction</strong> —
+          renovating one section of the park at a time while keeping the remaining
+          areas open and accessible to the public.
+        </li>
+        <li>
+          <strong>Prioritize community access</strong> in the contractor selection
+          criteria, weighing the importance of maintaining green space availability
+          alongside cost and timeline considerations.
+        </li>
+        <li>
+          <strong>Communicate transparently</strong> with residents about the
+          renovation schedule and which areas will be accessible at any given time.
+        </li>
+      </ol>
+
+      <h3>Why This Matters</h3>
+      <p>
+        Complete closure of Griggs Park would significantly impact our community:
+      </p>
+      <ul>
+        <li>Families with young children rely on the playground and open spaces for daily outdoor activity</li>
+        <li>Dog owners depend on the park for their pets' exercise and socialization</li>
+        <li>Elderly residents use the park for walks and community connection</li>
+        <li>The park serves as a gathering place that strengthens neighborhood bonds</li>
+      </ul>
+
+      <p>
+        While we understand that renovations require some disruption, a phased approach
+        can achieve the Town's improvement goals while respecting the community's need
+        for continuous access to this essential public space.
+      </p>
+
+      <h3>Our Commitment</h3>
+      <p>
+        We, the signatories, commit to being patient and understanding during the
+        renovation process. We simply ask that the Town meet us halfway by ensuring
+        some portion of the park remains available throughout construction.
+      </p>
+
+      <div class="petition-signature-line">
+        <p><em>Add your name below to join the petition.</em></p>
+      </div>
     </section>
+  </main>
 
-    <!-- Action Buttons -->
-    <section class="actions">
+  <!-- Floating Action Buttons -->
+  <div class="floating-actions">
+    <div class="floating-actions-inner">
       <button id="btn-sign-email" class="btn btn-primary">
         Sign & Send Email
       </button>
       <button id="btn-sign" class="btn btn-secondary">
-        Sign Our Petition
+        Sign Petition
       </button>
-    </section>
-
-    <!-- Signature Count (optional, can be hidden initially) -->
-    <section class="signature-count" id="signature-count" style="display: none;">
-      <p><span id="count">0</span> people have signed</p>
-    </section>
-  </main>
+    </div>
+  </div>
 
   <!-- Modal Overlay -->
   <div class="modal-overlay" id="modal-overlay">

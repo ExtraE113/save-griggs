@@ -419,3 +419,115 @@ footer a:hover {
   outline: 3px solid var(--color-primary-light);
   outline-offset: 2px;
 }
+
+/* ============================================
+   Petition Page
+   ============================================ */
+.petition-page .hero {
+  padding-bottom: var(--spacing-sm);
+}
+
+.back-link {
+  margin-bottom: var(--spacing-sm);
+}
+
+.back-link a {
+  color: var(--color-text-muted);
+  text-decoration: none;
+  font-size: 0.875rem;
+}
+
+.back-link a:hover {
+  color: var(--color-primary);
+}
+
+.petition-content {
+  background: var(--color-bg-card);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-lg);
+  margin-bottom: var(--spacing-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.petition-content h2 {
+  font-size: 1.25rem;
+  color: var(--color-primary-dark);
+  margin-bottom: var(--spacing-md);
+}
+
+.petition-content h3 {
+  font-size: 1.1rem;
+  color: var(--color-primary-dark);
+  margin-top: var(--spacing-md);
+  margin-bottom: var(--spacing-sm);
+}
+
+.petition-content p {
+  margin-bottom: var(--spacing-sm);
+}
+
+.petition-content ol,
+.petition-content ul {
+  margin-left: var(--spacing-md);
+  margin-bottom: var(--spacing-sm);
+}
+
+.petition-content li {
+  margin-bottom: var(--spacing-xs);
+}
+
+.petition-signature-line {
+  margin-top: var(--spacing-lg);
+  padding-top: var(--spacing-md);
+  border-top: 1px solid var(--color-border);
+  text-align: center;
+}
+
+/* ============================================
+   Floating Action Buttons
+   ============================================ */
+.has-floating-actions {
+  padding-bottom: 100px; /* Space for floating buttons */
+}
+
+.has-floating-actions footer {
+  padding-bottom: 100px;
+}
+
+.floating-actions {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--color-bg-card);
+  border-top: 1px solid var(--color-border);
+  padding: var(--spacing-sm) var(--spacing-md);
+  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+}
+
+.floating-actions-inner {
+  display: flex;
+  gap: var(--spacing-sm);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.floating-actions .btn {
+  flex: 1;
+  font-size: 1rem;
+}
+
+@media (min-width: 768px) {
+  .petition-content {
+    padding: var(--spacing-xl);
+  }
+
+  .floating-actions {
+    padding: var(--spacing-md) var(--spacing-lg);
+  }
+
+  .floating-actions .btn {
+    font-size: 1.125rem;
+  }
+}

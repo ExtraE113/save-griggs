@@ -4,9 +4,24 @@
 
 // Email addresses for town officials (TO field)
 export const RECIPIENT_EMAILS: string[] = [
-  // Add town official emails here, e.g.:
-  // "official1@brooklinema.gov",
-  // "official2@brooklinema.gov",
+    "tdavis@brooklinema.gov",
+    "avecchio@brooklinema.gov",
+    "parkandreccommission@brooklinema.gov",
+    "greendog@brooklinema.gov",
+    "parks@brooklinema.gov",
+    "mpradhan@brooklinema.gov",
+    "akraemer@brooklinema.gov",
+    "clarabatchelor@yahoo.com",
+    "jkcarroll000@gmail.com",
+    "jmflanagan7@gmail.com",
+    "johnpan@gmail.com",
+    "declanross2@gmail.com",
+    "avecchio@brooklinema.gov",
+    "jnutting@brooklinema.gov",
+    "theresakennelly@gmail.com",
+    "antonia@bellalta3.com",
+    "laurensarabernard@gmail.com",
+    "jason.ribatt@icloud.com",
 ];
 
 // BCC email for tracking responses

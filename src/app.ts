@@ -9,6 +9,22 @@ import {
 } from './config.ts';
 
 // ============================================
+// Google Analytics
+// ============================================
+declare function gtag(command: 'event', eventName: string, params?: Record<string, unknown>): void;
+
+function trackEvent(eventName: string, params?: Record<string, unknown>): void {
+  try {
+    if (typeof gtag === 'function') {
+      gtag('event', eventName, params);
+    }
+  } catch (error) {
+    // Analytics is non-essential, don't break the app
+    console.error('Analytics error:', error);
+  }
+}
+
+// ============================================
 // Types
 // ============================================
 type FlowType = 'sign-only' | 'sign-and-email';
@@ -65,7 +81,8 @@ async function submitToGoogleForms(name: string, email?: string): Promise<void> 
 // Email Generation
 // ============================================
 function generateMailtoLink(): string {
-  const to = RECIPIENT_EMAILS.join(',');
+  const uniqueEmails = [...new Set(RECIPIENT_EMAILS)];
+  const to = uniqueEmails.join(',');
   const subject = encodeURIComponent(EMAIL_SUBJECT);
   const bodyWithName = EMAIL_BODY.replace('[Your Name]', userName);
   const body = encodeURIComponent(bodyWithName);
@@ -133,6 +150,7 @@ function handleNameSubmit(event: Event): void {
 
   // Submit name immediately (don't wait for email step)
   submitToGoogleForms(userName);
+  trackEvent('name_submitted', { flow: currentFlow });
 
   // Move to email step
   showStep('step-email');
@@ -148,6 +166,7 @@ function handleEmailSubmit(event: Event): void {
     // Submit with email (this creates a second entry, which is fine)
     // Or we could update the existing entry if Google Forms supported it
     submitToGoogleForms(userName, email);
+    trackEvent('email_submitted', { flow: currentFlow });
   }
 
   // Proceed based on flow type
@@ -167,6 +186,7 @@ function handleSkipEmail(): void {
 }
 
 function handleOpenEmail(): void {
+  trackEvent('open_email_clicked');
   const mailtoLink = generateMailtoLink();
   window.location.href = mailtoLink;
 
@@ -185,11 +205,13 @@ function setupEventListeners(): void {
   const btnSignEmail = getElement<HTMLButtonElement>('btn-sign-email');
 
   btnSign.addEventListener('click', () => {
+    trackEvent('button_click', { button_type: 'sign_only' });
     currentFlow = 'sign-only';
     showModal();
   });
 
   btnSignEmail.addEventListener('click', () => {
+    trackEvent('button_click', { button_type: 'sign_and_email' });
     currentFlow = 'sign-and-email';
     showModal();
   });
