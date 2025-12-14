@@ -6,6 +6,8 @@ import {
   GOOGLE_FORM_URL,
   FORM_FIELD_NAME,
   FORM_FIELD_EMAIL,
+  SIGNATURE_COUNT_API_URL,
+  MIN_SIGNATURES_TO_DISPLAY,
 } from './config.ts';
 
 // ============================================
@@ -21,6 +23,38 @@ function trackEvent(eventName: string, params?: Record<string, unknown>): void {
   } catch (error) {
     // Analytics is non-essential, don't break the app
     console.error('Analytics error:', error);
+  }
+}
+
+// ============================================
+// Signature Count
+// ============================================
+async function fetchSignatureCount(): Promise<void> {
+  if (!SIGNATURE_COUNT_API_URL) {
+    return;
+  }
+
+  try {
+    const response = await fetch(SIGNATURE_COUNT_API_URL);
+    const data = await response.json() as { count: number };
+    const count = data.count;
+
+    if (count >= MIN_SIGNATURES_TO_DISPLAY) {
+      displaySignatureCount(count);
+    }
+  } catch (error) {
+    // Non-essential, don't break the app
+    console.error('Error fetching signature count:', error);
+  }
+}
+
+function displaySignatureCount(count: number): void {
+  const countSection = document.getElementById('signature-count');
+  const countElement = document.getElementById('count');
+
+  if (countSection && countElement) {
+    countElement.textContent = count.toString();
+    countSection.style.display = 'block';
   }
 }
 
@@ -258,6 +292,7 @@ function setupEventListeners(): void {
 // ============================================
 function init(): void {
   setupEventListeners();
+  fetchSignatureCount();
   console.log('SaveGriggs app initialized');
 
   // Warn if Google Forms is not configured

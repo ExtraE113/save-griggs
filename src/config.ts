@@ -45,3 +45,14 @@ export const GOOGLE_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSfCoGDi
 // Field entry IDs from the Google Form
 export const FORM_FIELD_NAME = "entry.1719420363";
 export const FORM_FIELD_EMAIL = "entry.2062294662";
+
+// ============================================
+// SIGNATURE COUNT API
+// ============================================
+
+// Google Apps Script web app URL (returns {count: number})
+// Deploy your Apps Script and paste the URL here
+export const SIGNATURE_COUNT_API_URL = "https://script.google.com/macros/s/AKfycbzcESnuALoaUEBaIsRGP-bSApBUc5j5nTu0Pm-I86TBGgTAXoTAJSYjRIgc8kVie__r/exec";
+
+// Minimum signatures to display the count (hide if below this)
+export const MIN_SIGNATURES_TO_DISPLAY = 10;
