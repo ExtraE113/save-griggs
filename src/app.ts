@@ -1,8 +1,8 @@
 import {
   RECIPIENT_EMAILS,
   BCC_EMAIL,
-  EMAIL_SUBJECT,
-  EMAIL_BODY,
+  getEmailSubject,
+  getEmailBody,
   GOOGLE_FORM_URL,
   FORM_FIELD_NAME,
   FORM_FIELD_EMAIL,
@@ -117,8 +117,8 @@ async function submitToGoogleForms(name: string, email?: string): Promise<void> 
 function generateMailtoLink(): string {
   const uniqueEmails = [...new Set(RECIPIENT_EMAILS)];
   const to = uniqueEmails.join(',');
-  const subject = encodeURIComponent(EMAIL_SUBJECT);
-  const bodyWithName = EMAIL_BODY.replace('[Your Name]', userName);
+  const subject = encodeURIComponent(getEmailSubject());
+  const bodyWithName = getEmailBody().replace('[Your Name]', userName);
   const body = encodeURIComponent(bodyWithName);
   const bcc = encodeURIComponent(BCC_EMAIL);
 
