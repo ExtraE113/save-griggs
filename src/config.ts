@@ -32,7 +32,27 @@ export const EMAIL_SUBJECTS: string[] = [
     "Don't Shut Down All of Griggs Park",
     "Please Don't Close Griggs Park Completely",
     "Thoughts on the Griggs Park Renovation",
-    "Griggs Park Access During Construction"
+    "Griggs Park Access During Construction",
+    "Please Consider Phasing the Griggs Park Renovation",
+    "Request to Maintain Partial Access to Griggs Park",
+    "Keeping Griggs Park Usable During Construction",
+    "A Community Request About Griggs Park Access",
+    "Phased Renovation Approach for Griggs Park",
+    "Preserving Some Public Access to Griggs Park During Renovation",
+    "Griggs Park Renovation: Request for Partial Closure",
+    "Maintaining Community Access to Griggs Park",
+    "Request for Staged Construction at Griggs Park",
+    "Please Keep Portions of Griggs Park Available",
+    "Griggs Park Construction and Community Access",
+    "A Thoughtful Request Regarding Griggs Park Renovations",
+    "Access Considerations for Griggs Park Renovation",
+    "Community Use of Griggs Park During Construction",
+    "Request to Avoid Full Closure of Griggs Park",
+    "Keeping Griggs Park Partially Accessible for Neighbors",
+    "Griggs Park Renovation and Public Access",
+    "Please Consider a Staggered Closure for Griggs Park",
+    "Ensuring Continued Access to Griggs Park During Renovation",
+    "A Request for Partial Park Access During Griggs Renovation"
 ];
 
 export const EMAIL_SIGNATURES: string[] = [
