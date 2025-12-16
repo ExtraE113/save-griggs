@@ -8,6 +8,9 @@ import {
   FORM_FIELD_EMAIL,
   SIGNATURE_COUNT_API_URL,
   MIN_SIGNATURES_TO_DISPLAY,
+  BASELINE_SIGNATURE_COUNT,
+  SIGNATURE_START_DATE,
+  DAYS_TO_SHOW_RECENCY,
 } from './config.ts';
 
 // ============================================
@@ -29,6 +32,12 @@ function trackEvent(eventName: string, params?: Record<string, unknown>): void {
 // ============================================
 // Signature Count
 // ============================================
+function getDaysSinceStart(): number {
+  const now = new Date();
+  const diffMs = now.getTime() - SIGNATURE_START_DATE.getTime();
+  return Math.floor(diffMs / (1000 * 60 * 60 * 24));
+}
+
 async function fetchSignatureCount(): Promise<void> {
   if (!SIGNATURE_COUNT_API_URL) {
     return;
@@ -51,10 +60,18 @@ async function fetchSignatureCount(): Promise<void> {
 function displaySignatureCount(count: number): void {
   const countSection = document.getElementById('signature-count');
   const countElement = document.getElementById('count');
+  const textElement = countSection?.querySelector('p');
 
-  if (countSection && countElement) {
+  if (countSection && countElement && textElement) {
     countElement.textContent = count.toString();
-    countSection.style.display = 'block';
+
+    const daysSinceStart = getDaysSinceStart();
+    if (daysSinceStart <= DAYS_TO_SHOW_RECENCY) {
+      const daysText = daysSinceStart === 1 ? 'day' : 'days';
+      textElement.innerHTML = `<span id="count">${count}</span> people have already signed in the last ${daysSinceStart} ${daysText}`;
+    } else {
+      textElement.innerHTML = `<span id="count">${count}</span> people have already signed`;
+    }
   }
 }
 
@@ -294,7 +311,11 @@ function setupEventListeners(): void {
 // ============================================
 function init(): void {
   setupEventListeners();
+
+  // Show baseline signature count immediately, then fetch actual count
+  displaySignatureCount(BASELINE_SIGNATURE_COUNT);
   fetchSignatureCount();
+
   console.log('SaveGriggs app initialized');
 
   // Warn if Google Forms is not configured
