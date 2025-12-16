@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Save Griggs Park - Sign-up Sheet</title>
+    <link rel="icon" type="image/png" href="/icons8-tree-48.png">
+    <style>
+        /* Base styles */
+        :root {
+            --color-primary: #2d6a4f;
+            --color-primary-dark: #1b4332;
+            --color-text: #1b1b1b;
+            --color-text-muted: #555555;
+            --color-border: #d8e2dc;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.5;
+            color: var(--color-text);
+            padding: 1.5rem;
+            max-width: 8.5in;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 0.75rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--color-primary);
+        }
+
+        .header h1 {
+            font-size: 1.5rem;
+            color: var(--color-primary);
+            margin-bottom: 0.1rem;
+        }
+
+        .header .tagline {
+            font-size: 0.95rem;
+            color: var(--color-text-muted);
+        }
+
+        /* Intro text */
+        .intro {
+            margin-bottom: 0.75rem;
+            font-size: 0.9rem;
+        }
+
+        .intro p {
+            margin-bottom: 0;
+        }
+
+        .intro strong {
+            color: var(--color-primary-dark);
+        }
+
+        /* Sign-up table */
+        .signup-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1.5rem;
+        }
+
+        .signup-table th {
+            background: var(--color-primary);
+            color: white;
+            padding: 0.6rem 0.75rem;
+            text-align: left;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .signup-table td {
+            border: 1px solid var(--color-border);
+            padding: 0.5rem 0.75rem;
+            height: 2.25rem;
+            vertical-align: middle;
+        }
+
+        .signup-table tbody tr:nth-child(even) {
+            background: #fafafa;
+        }
+
+        /* Print styles */
+        @media print {
+            body {
+                padding: 0.5in;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .header {
+                margin-bottom: 1rem;
+            }
+
+            .signup-table th {
+                background: var(--color-primary) !important;
+                color: white !important;
+            }
+
+            .no-print {
+                display: none;
+            }
+        }
+
+        /* Screen-only print button */
+        .print-btn {
+            display: block;
+            width: 100%;
+            max-width: 200px;
+            margin: 0 auto 1.5rem;
+            padding: 0.75rem 1.5rem;
+            background: var(--color-primary);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .print-btn:hover {
+            background: var(--color-primary-dark);
+        }
+
+        @media print {
+            .print-btn {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+<button class="print-btn no-print" onclick="window.print()">Print this page</button>
+
+<header class="header">
+    <h1>Save Griggs Park</h1>
+    <p class="tagline">Keep our park open during renovation</p>
+</header>
+
+<section class="intro">
+    <p>
+        We the undersigned ask the Town of Brookline to select a contractor who will
+        <strong>renovate one section of Griggs Park at a time</strong>, keeping the rest
+        open for the families, children, and dogs who depend on this green space.
+    </p>
+</section>
+
+<table class="signup-table">
+    <thead>
+    <tr>
+        <th>Name (print clearly)</th>
+        <th>Name (print clearly)</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr><td></td><td></td></tr>
+    <tr><td></td><td></td></tr>
+    <tr><td></td><td></td></tr>
+    <tr><td></td><td></td></tr>
+    <tr><td></td><td></td></tr>
+    <tr><td></td><td></td></tr>
+    <tr><td></td><td></td></tr>
+    <tr><td></td><td></td></tr>
+    <tr><td></td><td></td></tr>
+    <tr><td></td><td></td></tr>
+    <tr><td></td><td></td></tr>
+    <tr><td></td><td></td></tr>
+    <tr><td></td><td></td></tr>
+    <tr><td></td><td></td></tr>
+    <tr><td></td><td></td></tr>
+    <tr><td></td><td></td></tr>
+    <tr><td></td><td></td></tr>
+    <tr><td></td><td></td></tr>
+    <tr><td></td><td></td></tr>
+    <tr><td></td><td></td></tr>
+    </tbody>
+</table>
+</body>
+</html>
