@@ -279,12 +279,14 @@ function setupEventListeners(): void {
   const btnOpenEmail = getElement<HTMLButtonElement>('btn-open-email');
   const btnSkipSend = getElement<HTMLButtonElement>('btn-skip-send');
   const btnFinalDone = getElement<HTMLButtonElement>('btn-final-done');
+  const btnSendEmailCta = getElement<HTMLButtonElement>('btn-send-email-cta');
 
   btnSkipEmail.addEventListener('click', handleSkipEmail);
   btnDone.addEventListener('click', hideModal);
   btnOpenEmail.addEventListener('click', handleOpenEmail);
   btnSkipSend.addEventListener('click', () => showStep('step-final-thanks'));
   btnFinalDone.addEventListener('click', hideModal);
+  btnSendEmailCta.addEventListener('click', handleOpenEmail);
 }
 
 // ============================================

@@ -302,6 +302,15 @@ body {
   width: 100%;
 }
 
+.modal-step .email-cta-text {
+  background: var(--color-accent);
+  padding: var(--spacing-sm);
+  border-radius: var(--radius-md);
+  color: var(--color-primary-dark);
+  font-size: 0.95rem;
+  text-align: center;
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;
