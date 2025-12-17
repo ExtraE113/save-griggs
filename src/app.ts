@@ -32,10 +32,62 @@ function trackEvent(eventName: string, params?: Record<string, unknown>): void {
 // ============================================
 // Signature Count
 // ============================================
+let currentDisplayedCount = 0;
+let isAnimating = false;
+let pendingCount: number | null = null;
+
 function getDaysSinceStart(): number {
   const now = new Date();
   const diffMs = now.getTime() - SIGNATURE_START_DATE.getTime();
   return Math.floor(diffMs / (1000 * 60 * 60 * 24));
+}
+
+function initDaysText(): void {
+  const daysTextElement = document.getElementById('days-text');
+  if (!daysTextElement) return;
+
+  const daysSinceStart = getDaysSinceStart();
+  if (daysSinceStart <= DAYS_TO_SHOW_RECENCY) {
+    const daysWord = daysSinceStart === 1 ? 'day' : 'days';
+    daysTextElement.textContent = ` in the last ${daysSinceStart} ${daysWord}`;
+  }
+}
+
+function animateCount(from: number, to: number, duration: number, onComplete?: () => void): void {
+  const countElement = document.getElementById('count');
+  if (!countElement) return;
+
+  isAnimating = true;
+  const startTime = performance.now();
+  const difference = to - from;
+  const element = countElement; // Capture for closure
+
+  function update(currentTime: number): void {
+    const elapsed = currentTime - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+
+    // Ease out cubic for smooth deceleration
+    const easeOut = 1 - Math.pow(1 - progress, 3);
+    const currentValue = Math.round(from + difference * easeOut);
+
+    element.textContent = currentValue.toString();
+    currentDisplayedCount = currentValue;
+
+    if (progress < 1) {
+      requestAnimationFrame(update);
+    } else {
+      isAnimating = false;
+      if (onComplete) onComplete();
+      // Check if there's a pending count to animate to
+      if (pendingCount !== null && pendingCount > currentDisplayedCount) {
+        const nextTarget = pendingCount;
+        pendingCount = null;
+        animateCount(currentDisplayedCount, nextTarget, 800);
+      }
+    }
+  }
+
+  requestAnimationFrame(update);
 }
 
 async function fetchSignatureCount(): Promise<void> {
@@ -48,8 +100,14 @@ async function fetchSignatureCount(): Promise<void> {
     const data = await response.json() as { count: number };
     const count = data.count;
 
-    if (count >= MIN_SIGNATURES_TO_DISPLAY) {
-      displaySignatureCount(count);
+    if (count >= MIN_SIGNATURES_TO_DISPLAY && count > currentDisplayedCount) {
+      if (isAnimating) {
+        // Store for later - will animate when current animation completes
+        pendingCount = count;
+      } else {
+        // Animate from current displayed count to actual count
+        animateCount(currentDisplayedCount, count, 800);
+      }
     }
   } catch (error) {
     // Non-essential, don't break the app
@@ -57,22 +115,9 @@ async function fetchSignatureCount(): Promise<void> {
   }
 }
 
-function displaySignatureCount(count: number): void {
-  const countSection = document.getElementById('signature-count');
-  const countElement = document.getElementById('count');
-  const textElement = countSection?.querySelector('p');
-
-  if (countSection && countElement && textElement) {
-    countElement.textContent = count.toString();
-
-    const daysSinceStart = getDaysSinceStart();
-    if (daysSinceStart <= DAYS_TO_SHOW_RECENCY) {
-      const daysText = daysSinceStart === 1 ? 'day' : 'days';
-      textElement.innerHTML = `<span id="count">${count}</span> people have already signed in the last ${daysSinceStart} ${daysText}`;
-    } else {
-      textElement.innerHTML = `<span id="count">${count}</span> people have already signed`;
-    }
-  }
+function initSignatureCount(): void {
+  // Animate from 0 to baseline
+  animateCount(0, BASELINE_SIGNATURE_COUNT, 1800);
 }
 
 // ============================================
@@ -312,8 +357,10 @@ function setupEventListeners(): void {
 function init(): void {
   setupEventListeners();
 
-  // Show baseline signature count immediately, then fetch actual count
-  displaySignatureCount(BASELINE_SIGNATURE_COUNT);
+  // Set up days text immediately (no pop-in)
+  initDaysText();
+  // Animate count to baseline, then fetch actual count
+  initSignatureCount();
   fetchSignatureCount();
 
   console.log('SaveGriggs app initialized');
