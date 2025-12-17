@@ -215,7 +215,7 @@ export const SIGNATURE_COUNT_API_URL = "https://script.google.com/macros/s/AKfyc
 export const MIN_SIGNATURES_TO_DISPLAY = 10;
 
 // Baseline signature count to show before API fetch completes
-export const BASELINE_SIGNATURE_COUNT = 87;
+export const BASELINE_SIGNATURE_COUNT = 91;
 
 // Start date for "in the last X days" messaging (Dec 14, 2025 at 6:32 PM)
 export const SIGNATURE_START_DATE = new Date('2025-12-14T18:32:00');
