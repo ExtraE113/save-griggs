@@ -221,4 +221,4 @@ export const BASELINE_SIGNATURE_COUNT = 204;
 export const SIGNATURE_START_DATE = new Date('2025-12-14T18:32:00');
 
 // Number of days after start date to show "in the last X days" text
-export const DAYS_TO_SHOW_RECENCY = 4;
+export const DAYS_TO_SHOW_RECENCY = 5;
